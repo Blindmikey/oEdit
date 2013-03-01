@@ -1,0 +1,741 @@
+/*
+ *	oEdit CSS
+ */
+ 
+@font-face {
+    font-family: 'DINCond';
+    src: url('../fonts/dincond-regular-webfont.eot');
+    src: url('../fonts/dincond-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dincond-regular-webfont.woff') format('woff'),
+         url('../fonts/dincond-regular-webfont.ttf') format('truetype'),
+         url('../fonts/dincond-regular-webfont.svg#DINCondRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DINCondLight';
+    src: url('../fonts/dincond-light-webfont.eot');
+    src: url('../fonts/dincond-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dincond-light-webfont.woff') format('woff'),
+         url('../fonts/dincond-light-webfont.ttf') format('truetype'),
+         url('../fonts/dincond-light-webfont.svg#DINCondLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DINCondMedium';
+    src: url('../fonts/dincond-medium-webfont.eot');
+    src: url('../fonts/dincond-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dincond-medium-webfont.woff') format('woff'),
+         url('../fonts/dincond-medium-webfont.ttf') format('truetype'),
+         url('../fonts/dincond-medium-webfont.svg#DINCondMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ header {
+	height:67px;
+	background:url(../images/header_bg.png) repeat-x 0 0 #fff;
+	border-bottom:1px solid #b2b2b2;
+	position:relative;
+	z-index:2;
+ }
+ #logo {
+	display:block;
+	background:url(../images/logo.png) no-repeat center center #fff;
+	width:272px;
+	height:66px;
+	border-right:1px solid #f2f2f2;
+	border-bottom:2px solid #666;
+	float:left;
+	}
+	#logo span {
+		border: 0; 
+		clip: rect(0 0 0 0); 
+		height: 1px; 
+		margin: -1px; 
+		overflow: hidden; 
+		padding: 0; 
+		position: absolute; 
+		width: 1px;
+		}
+		
+	#curFile {
+		background:url(../images/file.png) no-repeat scroll 4px 5px #F2F2F2;
+		border-radius: 4px 4px 4px 4px;
+		color: #444444;
+		font-family: DINCondLight;
+		font-size: 24px;
+		line-height: 2.75em;
+		margin: 0 0 0 27px;
+		padding: 0 0.5em 0 1.25em;
+		border:1px solid #F2F2F2;
+		}
+		#curFile.new {
+			background:url(../images/file.png) no-repeat scroll 4px 5px #F2F2F2;
+			}
+		#curFile.editing {
+			border-color:#ccc;
+			}
+			
+	#Users {
+		color: #666666;
+		display: inline-block;
+		font-size: 0.75em;
+		margin: 0 0 0 1em;
+		padding: 0;
+		position: relative;
+		top: 0;
+		}
+		#Users li {
+			list-style:none;
+			margin: 0 1.25em 0 0;
+			float:left;
+			}
+		#Users .swatch {
+			border-radius: 3px;
+			display: inline-block;
+			height: 15px;
+			left: 0;
+			margin: 0 0.25em 0 0;
+			position: relative;
+			top: 3px;
+			width: 15px;
+			}
+			
+	#fullscreen {
+		background:url(../images/fullscreen.png) no-repeat 0 0;
+		height: 24px;
+		position: absolute;
+		right: 125px;
+		top: 22px;
+		width: 49px;
+		opacity:.7;
+		}
+		
+#editor-container {
+	
+	}
+	#editor {
+		visibility:hidden;
+		float:left;
+		}
+	#editor-container .jspVerticalBar {
+		left: -1px;
+		z-index: 10;
+		}
+		.activeline {
+			position: relative;
+			}
+		.activeline.other {
+			cursor:not-allowed;
+			}
+		.activeline:after {
+			content: '';
+			border-radius: 10px 0 0 10px;
+			box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+			border:1px solid #fff;
+			border-right:none;
+			min-width:.2em;
+			min-height:1.2em;
+			padding: 0.35em 0.25em 0.25em 0.5em;
+			position: absolute;
+			right: -5px;
+			top: -0.4em;
+			display: block;
+			}
+		.activeline:hover:after {
+			min-width:0;
+			min-height:0;
+			top: -0.35em;
+			color: #333333;
+			font-family: DinCond;
+			font-size: 1.2em;
+			letter-spacing: 0.05em;
+			}
+	#save,
+	#save-as,
+	#view,
+	.jquery-msgbox-buttons button{
+		background-color: #d06b5b;
+		border: 1px solid rgba(0, 0, 0, 0.25);
+		border-radius: 3px 3px 3px 3px;
+		box-shadow: 0 1px 0 darkRed;
+		color: rgba(255,255,255,0.5);
+		font-family: DinCond;
+		font-size: 24px;
+		line-height: 0.9em;
+		padding: 0 0.5em 0.15em;
+		position: absolute;
+		right: 1em;
+		top: 20px;
+		text-transform:lowercase;
+		outline:none !important;
+		}
+		#save:hover,
+		#save-as:hover,
+		#view:hover,
+		.jquery-msgbox-buttons button:hover {
+			cursor:pointer;
+			color:#fff;
+			box-shadow:none;
+			top:21px;
+			}
+	#save.saving {
+		cursor:pointer;
+		color:#eee;
+		background-color:#bbb;
+		border-color:#999;
+		box-shadow:none;
+		top:21px;
+		}
+	.jquery-msgbox-buttons button {
+		position: relative;
+		right: 0;
+		top: 0;
+		}
+		.jquery-msgbox-buttons button:hover {
+			top:1px;
+			}
+	#view {
+		right:7.9em;
+		background-color: #aaa;
+		box-shadow: 0 1px 0 #666;
+		text-decoration:none;
+		}
+	#editor-msg {
+		display:none;
+		background-color:#EEE;
+		border: 1px solid #BBB;
+		border-radius: 0 0 4px 4px;
+		border-top:none;
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+		color: #333;
+		font-family: DinCond;
+		font-size: 20px;
+		height: 25px;
+		letter-spacing: 0.025em;
+		margin: 0 auto -26px;
+		position: relative;
+		text-align: center;
+		width: 400px;
+		z-index: 1;
+		}
+			
+#dir-tree-menu {
+	display: none;
+    height: auto;
+	box-shadow:0 1px 2px #999;
+    position: absolute;
+    width: 150px;
+    z-index: 100;
+	}
+	#dir-tree-menu ul {
+		border-top: 1px solid #AAA;
+		margin: 0;
+		padding: 0;
+		}
+		#dir-tree-menu ul li {
+			background-color: Grey;
+			clear: left;
+			display: block;
+			float: left;
+			list-style: none outside none;
+			padding:0;
+			width: 100%;
+			}
+			#dir-tree-menu ul li button {
+				border: 1px solid #AAA;
+				background-color:#F0F0F0;
+				background-repeat:no-repeat;
+				border-top:none;
+				display: block;
+				font-size: 0.8em;
+				margin: 0;
+				opacity: 0.9;
+				padding: 0.25em 0.5em 0.25em 2.25em;
+				position: relative;
+				text-align: left;
+				width: inherit;	
+				color:#333;
+				}
+				#dir-tree-menu ul li button:hover {
+					opacity:1;
+					}
+			#dir-menu_open {
+				background-image:url(../images/quick_action_icons.png);
+				background-position:-19px 3px;
+				}
+			#dir-menu_view {
+				background-image:url(../images/view.png);
+				background-position:5px 4px;
+				}
+			#dir-menu_delete {
+				background-image:url(../images/delete.png);
+				background-position:5px 3px;
+				}
+			#dir-menu_cut {
+				background-image:url(../images/cut.png);
+				background-position:5px 6px;
+				}
+			#dir-menu_copy {
+				background-image:url(../images/copy.png);
+				background-position:5px 3px;
+				}
+			#dir-menu_paste {
+				background-image:url(../images/paste.png);
+				background-position:4px 4px;
+				}
+					
+#dir-tree-overlay {
+	display:none;
+	position:absolute;
+	top:0;
+	height:100%;
+	width:100%;
+	background-color:#fff;
+	opacity:.5;
+	}
+ 
+ #dir-tree-container {
+    color: #333333;
+    font-size: 0.75em;
+    margin: 0 8px 0 0;
+	padding: 0 3px 0 1em;
+    position: relative;
+    width: 250px;
+	float:left;
+	}
+	#dir-tree-container ul.dir-tree {
+		margin: 0;
+		overflow: hidden;
+		padding:1em 4px 1em 4px;
+		white-space: nowrap;
+		height:100%;
+		}
+	#dir-tree-container ul.dir-tree,
+	.jspContainer,
+	.jspPane {
+		outline:none !important;
+		}
+		#dir-tree-container ul.dir-tree li {
+			position:relative;
+			min-height:1.5em;
+			}	
+		#dir-tree-container ul.dir-tree li.dir {
+			background:url(../images/tree-end.png) no-repeat 0 bottom, url(../images/tree.png) repeat-y 6px 0;
+			}
+		#dir-tree-container ul.dir-tree li.dir:before {
+			border-bottom: 1px dotted #999999;
+			content: "";
+			display: block;
+			left: -32px;
+			position: relative;
+			top: 0.9em;
+			}
+		#dir-tree-container ul.dir-tree li.file:before {
+			border-bottom: 1px dotted #999999;
+			content: "";
+			display: block;
+			left: -32px;
+			position: relative;
+			top: 1em;
+			}
+		#dir-tree-container ul.dir-tree li:last-child {
+			border:none;
+			}
+			#dir-tree-container ul.dir-tree:hover li a,
+			#dir-tree-container ul.dir-tree:hover span.dirname {
+				color:#999;
+				}
+			#dir-tree-container ul.dir-tree:hover .jspDrag {
+				background-color:#444 !important;
+				}
+				
+				
+			#dir-tree-container ul.dir-tree li a {
+				background-color: #FFFFFF;
+				color: #333333;
+				display: block;
+				padding: 0.25em .5em 0.35em 0;
+				position: relative;
+				text-decoration: none;
+				}
+				#dir-tree-container ul.dir-tree li a.active {
+					color:#000 !important;
+					background-color:#eee !important;
+					cursor:pointer !important;
+				}
+				#dir-tree-container ul.dir-tree li:hover > a,
+				#dir-tree-container ul.dir-tree li:hover li:hover > a,
+				#dir-tree-container ul.dir-tree:hover span.dirname:hover {
+					color:#000;
+					background-color:#eee;
+					cursor:pointer;
+					}
+				
+				
+				#dir-tree-container ul.dir-tree li a.quick-view,
+				#dir-tree-container ul.dir-tree li a.quick-edit {
+					display:none;
+					position:absolute;
+					right:22px;
+					top:2px;
+					width:16px;
+					height:14px;
+					padding-left:3px;
+					background-image:url(../images/quick_action_icons.png);
+					background-color:#fff;
+					background-repeat:no-repeat;
+				}
+				#dir-tree-container ul.dir-tree:hover li a.quick-view,
+				#dir-tree-container ul.dir-tree:hover li a.quick-edit {
+					display:block;
+				}
+				
+				#dir-tree-container ul.dir-tree li a.active ~ a.quick-view,
+				#dir-tree-container ul.dir-tree li a.active ~ a.quick-edit {
+					background-color:#eee !important;
+				}
+				
+				#dir-tree-container ul.dir-tree li:hover > a.quick-view,
+				#dir-tree-container ul.dir-tree li:hover > a.quick-edit {
+					background-color:#eee;
+				}
+					
+				#dir-tree-container ul.dir-tree li a.current ~ a.quick-view,
+				#dir-tree-container ul.dir-tree li a.current ~ a.quick-edit {
+					background-color:#D3D3D3 !important;
+				}
+				#dir-tree-container ul.dir-tree li a.current ~ a.quick-edit {
+					background-position: -19px 2px;
+				}
+				
+				#dir-tree-container ul.dir-tree li a.quick-view {
+					background-position: 9px -23px ;
+					padding-left:8px;
+					}
+				#dir-tree-container ul.dir-tree li a.quick-edit {
+					right:2px;
+					background-position: -19px -23px ;
+					}
+					
+				#dir-tree-container ul.dir-tree li a.quick-view:hover {
+					background-position: 9px 2px ;
+					}
+				#dir-tree-container ul.dir-tree li a.quick-edit:hover {
+					background-position: -19px 2px ;
+					}
+				#dir-tree-container ul.dir-tree:hover li.png a.quick-edit,
+				#dir-tree-container ul.dir-tree:hover li.gif a.quick-edit,
+				#dir-tree-container ul.dir-tree:hover li.jpg a.quick-edit,
+				#dir-tree-container ul.dir-tree:hover li.jpeg a.quick-edit {
+					display:none;
+				}
+				#dir-tree-container ul.dir-tree li.png a.quick-view,
+				#dir-tree-container ul.dir-tree li.gif a.quick-view,
+				#dir-tree-container ul.dir-tree li.jpg a.quick-view,
+				#dir-tree-container ul.dir-tree li.jpeg a.quick-view {
+					right:2px;
+				}
+				
+				#dir-tree-container ul.dir-tree li a:focus {
+					outline:none;
+					}
+				#dir-tree-container ul.dir-tree li a.current {
+					background-color: lightGray !important;
+					color:#000 !important;
+				}
+				#dir-tree-container ul.dir-tree li a.current:after {
+					background-color: transparent;
+					border-color: transparent transparent transparent lightGray;
+					border-style: solid;
+					border-width: 11px 6px 11px 7px;
+					content: "";
+					display: block;
+					height: 0;
+					position: absolute;
+					right: -10px;
+					top: 0;
+					width: 0;
+					z-index: 100;
+					}
+			#dir-tree-container ul.dir-tree li em {
+				max-width: 26px;
+				background-color: #ADADAD;
+				border-radius: 0 2px 2px 0;
+				color: #FFFFFF;
+				display: inline-block;
+				font-size: 9px;
+				font-style: normal;
+				height: 10px;
+				margin-right: 1em;
+				padding: 2px 5px 2px 16px;
+				position: relative;
+				text-transform: uppercase;
+				}
+				#dir-tree-container ul.dir-tree li em:after {
+					content: '';
+					background:url(../images/file.png) no-repeat 0 0;
+					display: inline-block;
+					height: 18px;
+					left: -6px;
+					position: absolute;
+					top: -2px;
+					width: 19px;
+					}
+			#dir-tree-container ul.dir-tree li span.dirname {
+				background:url(../images/dir.png) no-repeat 2px 2px;
+				left: -4px;
+				position:relative;
+				display:block;
+				padding: 0.25em 0 0.35em 25px;
+				background-color:#fff;
+				}
+				#dir-tree-container ul.dir-tree li span.dirname.open {
+					background-image:url(../images/dir_open.png);
+					}
+			li.dir ul {
+				display:none;
+				}
+			#dir-tree-container ul.dir-tree li span.filename {
+				left: 50px;
+				position:absolute;
+				}
+				#dir-tree-container ul.dir-tree li ul {
+					margin:0;
+					}
+	
+	#dir-tree-container  ul.dir-tree li.png em:after,
+	#dir-tree-container  ul.dir-tree li.gif em:after,
+	#dir-tree-container  ul.dir-tree li.jpg em:after,
+	#dir-tree-container  ul.dir-tree li.jpeg em:after {
+		background:url(../images/picture.png) no-repeat 0 0;
+		}
+		#dir-tree-container  ul.dir-tree li.png em,
+		#dir-tree-container  ul.dir-tree li.gif em,
+		#dir-tree-container  ul.dir-tree li.jpg em,
+		#dir-tree-container  ul.dir-tree li.jpeg em {
+			background-color:#95caca;
+			}
+	
+	#dir-tree-container  ul.dir-tree li.font em:after,
+	#dir-tree-container  ul.dir-tree li.ttf em:after,
+	#dir-tree-container  ul.dir-tree li.otf em:after,
+	#dir-tree-container  ul.dir-tree li.eot em:after,
+	#dir-tree-container  ul.dir-tree li.woff em:after,
+	#dir-tree-container  ul.dir-tree li.svg em:after {
+		background:url(../images/font.png) no-repeat 0 0;
+		}
+		#dir-tree-container  ul.dir-tree li.font em,
+		#dir-tree-container  ul.dir-tree li.ttf em,
+		#dir-tree-container  ul.dir-tree li.otf em,
+		#dir-tree-container  ul.dir-tree li.eot em,
+		#dir-tree-container  ul.dir-tree li.woff em,
+		#dir-tree-container  ul.dir-tree li.svg em {
+			background-color:#cc8ddb;
+			}
+	#dir-tree-container  ul.dir-tree li.code em:after,
+	#dir-tree-container  ul.dir-tree li.php em:after,
+	#dir-tree-container  ul.dir-tree li.html em:after {
+		background:url(../images/code.png) no-repeat 0 0;
+		}
+		#dir-tree-container  ul.dir-tree li.code em,
+		#dir-tree-container  ul.dir-tree li.html em {
+			background-color:#90a475;
+			}
+	#dir-tree-container  ul.dir-tree li.css em:after {
+		background:url(../images/css.png) no-repeat 0 0;
+		}
+		#dir-tree-container  ul.dir-tree li.css em {
+			background-color:#8bc8a8;
+			}
+		#dir-tree-container  ul.dir-tree li.php em {
+			background-color:#9999CC;
+			}
+	#dir-tree-container  ul.dir-tree li.js em:after {
+		background:url(../images/js.png) no-repeat 0 0;
+		}
+		#dir-tree-container  ul.dir-tree li.js em {
+			background-color:#7fabca;
+			}
+.ui-resizable-e {
+	background: url(../images/drag.png) no-repeat scroll center center #fff;
+    border-right: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+    cursor: e-resize;
+    height: 100%;
+    position: absolute;
+    right: -8px;
+    top: 0;
+    width: 8px;
+	}
+.CodeMirror-gutter-text pre {
+	cursor:pointer;
+	}
+.marker {
+	background:url(../images/marker.png) no-repeat -1px -1px;
+	display: inline-block;
+    height: 10px;
+    position: relative;
+    top: 1px;
+    width: 10px;
+	}
+	
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+	outline:none !important;
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	outline:none !important;
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	height: 100%;
+    position: absolute;
+    right: 6px;
+    top: 0;
+    width: 3px;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0px;
+	background: red;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	background: transparent;
+	position: relative;
+}
+
+.jspDrag
+{
+	background: #aaa;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}
+
+body.login fieldset {
+	margin: 0 auto;
+    padding: 10px 40px 40px;
+    position: relative;
+    width: 300px;
+	color:#333;
+	border-radius:6px;
+	}
+	body.login fieldset legend {
+		font-family:DINCondLight;
+		font-size:20px;
+		padding:0 .5em;
+		background:#fff;
+		}
+	body.login fieldset label {
+		display:block;
+		}
+	body.login fieldset input[type=text],
+	body.login fieldset input[type=password] {
+		display: block;
+		margin-bottom: 1em;
+		width: 97%;
+		}
+	body.login fieldset input[type=submit] {
+		margin-top: .5em;
+		padding:.15em 1em;
+		}
+		
+.cm-tab {
+	background:url(../images/tree.png) no-repeat 0 1px;
+	opacity:.5;
+	}
+.cm-tab:first-child {
+	background:none;
+	}
